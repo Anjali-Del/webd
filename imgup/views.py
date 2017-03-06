@@ -42,11 +42,12 @@ def upload_file(request):
                     # Move file from memory to trash
                     os.rename(dfile.name, '/tmp/' + file.name)
 
+                    return render(request, 'msg.html')
+
                 except Exception as e:
-                    render(request, 'msg.html', {
-                           'message': "Image upload failed. Unknown Error: \
-                           " + str(e)})
-        return render(request, 'msg.html')
+                    return render(request, 'msg.html', {
+                                  'message': "Image upload failed. \
+                                  Unknown Error: " + str(e)})
     else:
         form = UploadImageForm()
-    return render(request, 'upload.html', {'form': form})
+        return render(request, 'upload.html', {'form': form})
