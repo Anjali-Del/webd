@@ -8,4 +8,6 @@ urlpatterns = [
     # url(r'^success/$', name='success'),
     url(r'^success/$', TemplateView.as_view(template_name="msg.html"),
         name='success'),
+    url(r'^failed/$', TemplateView.as_view(template_name="fail.html"),
+        name='failed'),
 ]
